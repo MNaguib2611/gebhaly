@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  app:
+    container_name: app
+    build: ./
+    depends_on:
+      - mongo
+    env_file: ./.env
+    ports:
+      - $PORT:$PORT
+    environment:
+      - PORT=$PORT
+      - MONGODB_URI=$MONGODB_URI
+      - JWT_SECRET=$JWT_SECRET
+
+  mongo:
+    image: arm64v8/mongo:4.0
+    volumes:
+      - mongo_db:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+ mongo_db:
+    driver: local
