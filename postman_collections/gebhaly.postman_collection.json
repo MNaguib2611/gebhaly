@@ -24,12 +24,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/users/register",
+							"raw": "{{URL}}/auth/register",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
-								"users",
+								"auth",
 								"register"
 							]
 						}
@@ -170,7 +170,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "63f4870c3c4423430d1369e5"
+									"value": "63f4c1146679fe4900d9dba4"
 								}
 							]
 						}

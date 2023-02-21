@@ -6,10 +6,10 @@ import { HashService } from './hash.service';
 import { User, UserDocument } from './users.schema';
 
 @Injectable()
-export class UserService {
+export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>, private hashService: HashService) {}
 
-  async getAllUsers() {
+  async getAllUsers(): Promise<User[]> {
     return this.userModel.find({}).exec();
   }
 

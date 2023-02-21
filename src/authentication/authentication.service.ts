@@ -1,14 +1,14 @@
-import { UserService } from '../users/users.service';
+import { UsersService } from '../users/users.service';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { HashService } from 'src/users/hash.service';
+import { HashService } from '../users/hash.service';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private userService: UserService, private hashService: HashService, private jwtService: JwtService) {}
+  constructor(private usersService: UsersService, private hashService: HashService, private jwtService: JwtService) {}
 
   async validateUser(username: string, pass: string) {
-    const user = await this.userService.getUserByUsername(username);
+    const user = await this.usersService.getUserByUsername(username);
     if (user && (await this.hashService.comparePassword(pass, user.password))) {
       return user;
     }

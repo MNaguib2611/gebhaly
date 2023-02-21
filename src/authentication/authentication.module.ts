@@ -4,10 +4,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthenticationService } from './authentication.service';
 import { AuthenticationController } from './authentication.controller';
 import { User, UserSchema } from '../users/users.schema';
-import { jwtConstants } from 'src/strategy/constants';
-import { UserService } from '../users/users.service';
-import { HashService } from 'src/users/hash.service';
-import { LocalStrategy } from 'src/strategy/local.strategy';
+import { jwtConstants } from '../strategy/constants';
+import { UsersService } from '../users/users.service';
+import { HashService } from '../users/hash.service';
+import { LocalStrategy } from '../strategy/local.strategy';
 
 @Module({
   imports: [
@@ -25,6 +25,6 @@ import { LocalStrategy } from 'src/strategy/local.strategy';
     }),
   ],
   controllers: [AuthenticationController],
-  providers: [AuthenticationService, UserService, LocalStrategy, HashService],
+  providers: [AuthenticationService, UsersService, LocalStrategy, HashService],
 })
 export class AuthenticationModule {}
